@@ -1,6 +1,9 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+import BaseApp from "../Core/Base";
 
-export function AddUser(){
+export function AddUser({user, setUser}){
+    const history = useHistory()
     //defining states
     const [name, setName] = useState("");
     const [id, setId] = useState("");
@@ -17,10 +20,15 @@ export function AddUser(){
             experience
         }
         console.log(newUser)
+        setUser([...user, newUser])
+        history.push("/")
     } 
     
     return (
-        <div>
+        <BaseApp
+        title={"Add A New User"}
+        >
+             <div>
                 <input 
                 placeholder="id"
                 value ={id}
@@ -55,5 +63,6 @@ export function AddUser(){
                 onClick={addNewUser}
                 >Add</button>
         </div>
+        </BaseApp>
     )
 }

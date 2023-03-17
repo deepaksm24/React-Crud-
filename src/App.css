@@ -15,7 +15,26 @@ background-color: antiquewhite;
   padding : 12px;
   width : 100%;
   background-color: grey;
+  display: flex;
+  justify-content: flex-start;
+  gap :0.5rem;
 }
+.nav-buttons{
+  border: 1px solid white;
+  color: white;
+  padding : 12px;
+  border-radius : 5px;
+  background-color: inherit;
+}
+.nav-buttons:hover{
+  background-color: black;
+  border: none;
+}
+.view-btn:hover{
+ background-color: yellowgreen;
+ color : white;
+}
+
 footer{
 
   padding: 17px;

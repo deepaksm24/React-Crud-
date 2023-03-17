@@ -1,10 +1,11 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import BaseApp from "../Core/Base";
-import { data } from "../Data/data.js";
-import { AddUser } from "./AddUser";
 
-export default function UserComponent(){
-    const [user, setUser] = useState(data)
+
+
+export default function UserComponent({user, setUser}){
+const history = useHistory();
 
    //functionality 
    const deleteUser = (idx)=>{
@@ -16,7 +17,6 @@ export default function UserComponent(){
         <BaseApp
         title= "User Details">
           <div className="user-content">
-            <AddUser/>
              {user.map((person, idx)=>(
                 <div key ={idx} className="user-card">
                     <h1>{person.name}</h1>
@@ -26,7 +26,10 @@ export default function UserComponent(){
 
                     <div className="btn-group">
                         <button className="btn edit-btn">Edit</button>
-
+                        <button 
+                        className="btn view-btn"
+                        onClick={()=>history.push(`/user/${idx}`)}
+                        >View</button>
                         <button 
                         className="btn del-btn"
                         onClick={()=>deleteUser(person.id)}

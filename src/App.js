@@ -1,13 +1,46 @@
 import { useEffect, useState } from 'react';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import './App.css';
+import { AddUser } from './Components/AddUser';
+import { Nopage } from './Components/NoPage';
 import UserComponent from './Components/UserComponent';
-import BaseApp from './Core/Base';
+import { UserDetails } from './Components/UserDetails';
+import { data } from './Data/data';
+
 
 function App() {
+const [user, setUser] = useState(data)
   //useEffect
   return (
     <div className="App">
-          <UserComponent/>
+      
+      <Switch>
+
+        <Route exact path="/">
+        <UserComponent
+        user={user}
+        setUser={setUser}/>
+        </Route>
+        
+        <Route path="/add/user">
+          <AddUser
+          user={user}
+          setUser={setUser}/>
+        </Route>
+
+        <Route path="/user/:id">
+           <UserDetails user={user}/>
+        </Route>
+
+        <Route path="/students">
+             <Redirect path= "/"/>
+        </Route>
+
+        <Route path = "**">
+            <Nopage/>
+        </Route>
+      
+      </Switch>
     </div>
   );
 }
@@ -15,7 +48,9 @@ function App() {
 export default App;
 
 //CRUD --
-//Create - 
+//Create - done
 //Read - done 
-//update
+//update - 
 //delete - done
+// router dom - done
+
