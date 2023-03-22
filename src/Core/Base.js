@@ -26,9 +26,9 @@ export default function BaseApp({title, styles, children}){
              <div className="childred">
                 {children}
         <footer>
-            contact us
-             <div>email : react@email.com</div>
-             <div>phone : 76****143</div>
+           
+             <div><p>Contact us</p>email :xxxxxx@gmail.com</div>
+             
          </footer>
              
              </div>

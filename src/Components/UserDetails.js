@@ -7,7 +7,7 @@ export function UserDetails({user}){
     const person = user[id];
     return (
         <BaseApp
-        title = {"User details"}
+        title = {"Profile"}
         >
            <div className="user-content">
                 <div  className="user-card">
